@@ -1,0 +1,25 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Class Grinder
+Class Boiler
+Class Frother
+Class MakeCoffee
+
+Grinder --> Boiler
+Boiler --> Frother
+
+Class Grinder {
++grind()
+}
+
+Class Boiler {
++boil()
+}
+
+Class Frother {
++froth()
+}
+
+
+@enduml
