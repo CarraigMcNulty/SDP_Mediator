@@ -4,7 +4,7 @@ public class Frother {
 
     }
 
-    public void froth() {
-        System.out.println("Frothing Milk....completed");
+    public void froth(String milkType) {
+        System.out.println("Frothing"+ milkType +"....completed");
     }
 }

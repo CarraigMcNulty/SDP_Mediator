@@ -4,10 +4,10 @@ public class Boiler {
 
     }
 
-public void boil(){
+public void boil(String milkType){
     System.out.println("boiling water....completed");
 
     Frother frother = new Frother();
-    frother.froth();
+    frother.froth(milkType);
     }
 }
