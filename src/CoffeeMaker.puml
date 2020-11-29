@@ -1,24 +1,61 @@
 @startuml
 skinparam classAttributeIconSize 0
-
+skinparam linetype ortho
+Enum Bean
+Class MakeCoffee
+Enum Milk
+Class Frother
 Class Grinder
 Class Boiler
-Class Frother
-Class MakeCoffee
+Class ConcreteMediator
+Interface Mediator
+Abstract Class MachineComponent
 
-Grinder --> Boiler
-Boiler --> Frother
+
+
+MachineComponent --> Mediator
+Mediator <|.. ConcreteMediator
+Frother <-- ConcreteMediator
+Grinder <-- ConcreteMediator
+Boiler  <--ConcreteMediator
+
+
+MachineComponent <|-- Grinder
+MachineComponent <|-- Boiler
+MachineComponent <|-- Frother
+
+Abstract Class MachineComponent {
+-mediator: Mediator
+}
+
+Interface Mediator{
++stopGrind():String
++stopBoil():String
++stopFroth():String
+}
 
 Class Grinder {
-+grind()
+-Bean:bean
++grind():String
+}
+
+Enum Bean {
+DARKROAST
+LIGHTROAST
+}
+
+Enum Milk {
+WHOLEMILK
+SKIMMILK
 }
 
 Class Boiler {
-+boil()
++boil():String
 }
 
 Class Frother {
-+froth()
+-Milk:milk
++froth():String
 }
 
 

@@ -1,11 +1,23 @@
 public class MakeCoffee {
     public static void main(String[] args) {
 
-        final String beans = "Medium Roast";
-        final String milk = "Whole Milk";
-
         Grinder grinder = new Grinder();
+        Boiler boiler = new Boiler();
+        Frother frother = new Frother();
+        ConcreteMediator mediator = new ConcreteMediator();
 
-        grinder.grind(beans,milk);
+        grinder.setMediator(mediator);
+        boiler.setMediator(mediator);
+        frother.setMediator(mediator);
+
+        mediator.setGrinder(grinder);
+        mediator.setBoiler(boiler);
+        mediator.setFrother(frother);
+
+        frother.setMilk(Milk.SKIMMILK);
+        grinder.setBean(Bean.DARKROAST);
+
+        System.out.println(grinder.grind());
     }
 }
+

@@ -1,13 +1,19 @@
-public class Boiler {
+public class Boiler extends MachineComponent {
 
-    public Boiler(){
+    private Mediator mediator;
 
+    public Mediator getMediator() {
+        return mediator;
     }
 
-public void boil(String milkType){
-    System.out.println("boiling water....completed");
+    public void setMediator(Mediator mediator) {
+        this.mediator = mediator;
+    }
 
-    Frother frother = new Frother();
-    frother.froth(milkType);
+    public String boil(){
+
+        return "boiling water....completed\n" + mediator.stopBoil();
     }
 }
+
+
